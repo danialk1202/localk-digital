@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocalK Digital — Helping Local Food Businesses Get Found, Build Trust, and Grow</title>
+  <meta name="description" content="Digital branding and growth agency for local food businesses. Local SEO, social media strategy, and influencer partnerships that turn visibility into real customers." />
+  <meta name="theme-color" content="#0a1f3d" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1f3d;
+      --navy-light: #12325a;
+      --navy-dark: #061428;
+      --orange: #d9541a;
+      --orange-light: #ee6b2f;
+      --orange-soft: #fdf3ec;
+      --white: #ffffff;
+      --off-white: #fafaf8;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+      --gray-dark: #374151;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--navy);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      border: 2px solid var(--orange);
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--orange-light); border-color: var(--orange-light); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(217,84,26,0.25); }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 100;
+      padding: 16px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+    .logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--gray-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 120px;
+      background:
+        radial-gradient(ellipse 80% 60% at 90% 0%, rgba(217,84,26,0.08), transparent 60%),
+        linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(217,84,26,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { position: relative; max-width: 860px; }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-soft);
+      color: var(--orange);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: var(--orange); }
+    .hero p {
+      font-size: clamp(16px, 1.4vw, 20px);
+      color: var(--gray);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gray-light);
+      flex-wrap: wrap;
+    }
+    .hero-stat { flex: 1; min-width: 140px; }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    .section-label {
+      display: inline-block;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .section-intro {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    /* About */
+    .about { background: var(--off-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-text p { font-size: 17px; margin-bottom: 20px; color: var(--gray-dark); }
+    .about-values { display: flex; flex-direction: column; gap: 16px; }
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .value-item:hover { border-color: var(--orange); transform: translateX(4px); }
+    .value-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--orange-soft);
+      color: var(--orange);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .value-text h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--navy); }
+    .value-text p { font-size: 13px; color: var(--gray); margin: 0; }
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      padding: 36px 32px;
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      border-radius: 16px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(10,31,61,0.08); border-color: var(--orange); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: all 0.3s;
+    }
+    .service-card:hover .service-icon { background: var(--orange); transform: scale(1.05); }
+    .service-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .service-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .service-card p { color: var(--gray); font-size: 15px; }
+    @media (max-width: 860px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* Benefits */
+    .benefits {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(217,84,26,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .benefits .section-title { color: var(--white); position: relative; }
+    .benefits .section-label { color: var(--orange-light); }
+    .benefits .section-intro { color: rgba(255,255,255,0.75); position: relative; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      transition: all 0.2s;
+    }
+    .benefit:hover { background: rgba(255,255,255,0.08); border-color: var(--orange); }
+    .benefit-check {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .benefit-text { font-size: 16px; color: rgba(255,255,255,0.9); padding-top: 4px; }
+    @media (max-width: 768px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    /* Framework */
+    .framework { background: var(--off-white); }
+    .framework-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .framework-steps::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 16.66%;
+      right: 16.66%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 50%, transparent 50%, transparent 100%);
+      background-size: 16px 2px;
+      background-repeat: repeat-x;
+      z-index: 0;
+    }
+    .step-card {
+      background: var(--white);
+      padding: 40px 32px;
+      border-radius: 16px;
+      border: 1px solid var(--gray-light);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(10,31,61,0.08); }
+    .step-number {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 900;
+      border: 4px solid var(--off-white);
+      box-shadow: 0 0 0 2px var(--orange);
+    }
+    .step-card h3 { font-size: 24px; margin-bottom: 12px; }
+    .step-card p { color: var(--gray); font-size: 15px; }
+    @media (max-width: 860px) {
+      .framework-steps { grid-template-columns: 1fr; gap: 24px; }
+      .framework-steps::before { display: none; }
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial {
+      background: var(--white);
+      padding: 36px 32px;
+      border-radius: 16px;
+      border: 1px solid var(--gray-light);
+      position: relative;
+      transition: all 0.3s;
+    }
+    .testimonial:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(10,31,61,0.08); border-color: var(--orange); }
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px;
+      line-height: 1;
+      color: var(--orange);
+      position: absolute;
+      top: 20px;
+      left: 28px;
+      opacity: 0.3;
+    }
+    .testimonial-text {
+      font-size: 16px;
+      color: var(--gray-dark);
+      margin-bottom: 24px;
+      margin-top: 32px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid var(--gray-light); }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .author-info h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); margin: 0; }
+    .author-info p { font-size: 12px; color: var(--gray); margin: 0; }
+    @media (max-width: 860px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+    /* Pricing */
+    .pricing {
+      background: var(--off-white);
+      text-align: center;
+    }
+    .pricing-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 2px solid var(--gray-light);
+      border-radius: 20px;
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--navy), var(--orange));
+    }
+    .pricing-starting {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price .dollar { font-size: 36px; vertical-align: top; margin-right: 4px; color: var(--orange); }
+    .pricing-period { font-size: 15px; color: var(--gray); margin-bottom: 32px; }
+    .pricing-desc {
+      font-size: 16px;
+      color: var(--gray-dark);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .cta .section-title { color: var(--white); }
+    .cta .section-label { color: var(--orange-light); }
+    .cta-left p { color: rgba(255,255,255,0.8); font-size: 17px; margin-bottom: 32px; }
+    .cta-contact { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: var(--orange-light); }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 18px; height: 18px; stroke: var(--orange-light); fill: none; stroke-width: 2; }
+
+    .cta-form {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 16px;
+      color: var(--gray-dark);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--gray-dark);
+      transition: border-color 0.2s;
+      background: var(--off-white);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .cta-form button {
+      width: 100%;
+      margin-top: 8px;
+    }
+    @media (max-width: 860px) {
+      .cta-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .cta-form { padding: 28px; }
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+    .footer .logo { font-size: 18px; margin-bottom: 12px; display: inline-block; }
+    .footer-links { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: var(--orange-light); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">LocalK<span>.</span>Digital</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#framework">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-label">Growth Partner for Local Food Businesses</span>
+        <h1>Helping Local Food Businesses Get Found, Build Trust, and <span class="accent">Grow.</span></h1>
+        <p>We turn visibility into real customers through Local SEO, social media strategy, and influencer partnerships built specifically for restaurants, cafes, and bakeries.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn">Get Your Free Growth Consultation</a>
+          <a href="#services" class="btn btn-outline">See What We Do</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Food-Focused</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3-Step</div>
+            <div class="hero-stat-label">Growth Framework</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">Dallas</div>
+            <div class="hero-stat-label">Proudly Local</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label">About LocalK Digital</span>
+          <h2 class="section-title">We understand technology <em>and</em> business growth.</h2>
+          <p>LocalK Digital was founded by two Dallas-based professionals with backgrounds in IT, sales, cybersecurity, and data analysis. We bring the precision of a technical team with the instincts of growth marketers.</p>
+          <p>We believe great food deserves great visibility. Our mission is to help local food businesses translate the quality of what they serve into the online presence they deserve.</p>
+          <p>We're not just an SEO company. We are a long-term growth partner, invested in the success of every restaurant, cafe, and bakery we work with.</p>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">◆</div>
+            <div class="value-text">
+              <h4>Growth-Focused Strategists</h4>
+              <p>Every tactic is tied to a measurable business outcome.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">◆</div>
+            <div class="value-text">
+              <h4>Data-Driven Problem Solvers</h4>
+              <p>We measure, test, and iterate -- no guesswork.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">◆</div>
+            <div class="value-text">
+              <h4>Local Business Advocates</h4>
+              <p>Your wins are our wins. We're in it for the long run.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">◆</div>
+            <div class="value-text">
+              <h4>Community-Minded Entrepreneurs</h4>
+              <p>Supporting the local food scene is part of our mission.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Growth Services Built for Food Businesses</h2>
+      <p class="section-intro">Three focused services that work together to turn casual searchers into loyal customers.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Local SEO &amp; Google Visibility</h3>
+          <p>Optimize your Google Business Profile, improve search rankings, build citations, and manage reviews so customers find you when they search nearby.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <h3>Social Media &amp; Content Creation</h3>
+          <p>Consistent, high-quality content that builds brand recognition, drives engagement, and turns followers into first-time visitors and repeat customers.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Influencer Partnerships</h3>
+          <p>Strategic introductions to trusted local influencers who expand your reach and create authentic brand awareness with the audiences you want to reach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <span class="section-label">How It Helps</span>
+      <h2 class="section-title">Real outcomes, not vanity metrics.</h2>
+      <p class="section-intro">We measure success the way you do -- customers through the door and dollars through the register.</p>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">Get discovered by customers actively searching nearby for your type of food</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">Build trust through reviews, consistent branding, and a professional online presence</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">Increase engagement, foot traffic, and repeat customer revenue</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-check">✓</div>
+          <div class="benefit-text">Turn online visibility into measurable growth you can see on your P&amp;L</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="framework" id="framework">
+    <div class="container">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">A simple 3-step growth framework.</h2>
+      <p class="section-intro">We've refined our approach so you always know where you are and where you're going next.</p>
+      <div class="framework-steps">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Discover</h3>
+          <p>Free consultation to identify visibility gaps, missed opportunities, and growth bottlenecks specific to your business.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Build</h3>
+          <p>Strengthen your SEO foundation, social media presence, and brand consistency across every platform customers find you.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Grow</h3>
+          <p>Convert that attention into real engagement, new customers, and repeat business that compounds month over month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What our partners are saying.</h2>
+      <p class="section-intro">Real results from real food businesses we've helped grow.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">LocalK handled our Google Business Profile and review strategy from day one. Within three months, we were showing up in the "near me" searches we'd been missing for years. Bookings are noticeably up.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <h4>Maria R.</h4>
+              <p>Owner, Neighborhood Cafe</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">What I appreciate most is how easy they are to work with. They explain everything without jargon, they show up prepared, and our social media actually looks professional now. Foot traffic is up and I hear "I saw you on Instagram" every week.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DL</div>
+            <div class="author-info">
+              <h4>David L.</h4>
+              <p>Co-owner, Family Bakery</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">The influencer intros alone paid for the engagement twice over. LocalK isn't just running campaigns -- they're acting like a growth partner who actually cares if my restaurant succeeds. Hard to find that these days.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-info">
+              <h4>Ayesha K.</h4>
+              <p>Owner, Dallas Kitchen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title" style="margin-left: auto; margin-right: auto; text-align: center;">Flexible Growth Plans</h2>
+      <p class="section-intro" style="margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 56px;">Every business is different. We build plans around your goals, not a rigid tier sheet.</p>
+      <div class="pricing-card">
+        <div class="pricing-starting">Packages starting at</div>
+        <div class="pricing-price"><span class="dollar">$</span>550</div>
+        <div class="pricing-period">per month</div>
+        <p class="pricing-desc">Every engagement starts with a free consultation so we can understand your business, your customers, and your goals before recommending a plan. No long-term contracts. No surprises. Just growth.</p>
+        <a href="#contact" class="btn">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-left">
+          <span class="section-label">Get Started</span>
+          <h2 class="section-title">Ready to grow?</h2>
+          <p>Schedule your free consultation and let's identify where your business is losing customers -- and exactly how to fix it.</p>
+          <div class="cta-contact">
+            <a href="tel:9453612957" class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <span>945-361-2957</span>
+            </a>
+            <a href="mailto:hello@localkdigital.com" class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <span>hello@localkdigital.com</span>
+            </a>
+          </div>
+        </div>
+        <form class="cta-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch shortly.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="business">Business Name</label>
+              <input type="text" id="business" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">How can we help?</label>
+            <textarea id="message" placeholder="Tell us about your business and what you're hoping to grow..."></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="#" class="logo">LocalK<span>.</span>Digital</a>
+      <p>Helping local food businesses grow through digital strategy.</p>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#framework">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 12px;">© 2026 LocalK Digital. Dallas, TX. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
