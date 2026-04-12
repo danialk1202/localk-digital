@@ -71,14 +71,30 @@
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 22px;
-      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: -0.03em;
+      height: 48px;
+      width: 160px;
+      overflow: hidden;
+      /* Crop the tagline "Your Local Growth Partner" from the bottom */
+      /* Logo is 800x800 with tagline in bottom ~15% — scale image and shift up */
     }
-    .logo span { color: var(--orange); }
+    .logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+      transform: translateY(-4px);
+    }
+    .footer-logo {
+      display: inline-block;
+      height: 56px;
+    }
+    .footer-logo img {
+      height: 100%;
+      width: auto;
+      filter: brightness(0) invert(1) opacity(0.85);
+    }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a {
       color: var(--gray-dark);
@@ -583,7 +599,9 @@
 
   <nav class="nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">LocalK<span>.</span>Digital</a>
+      <a href="#" class="logo" aria-label="LocalK Digital">
+        <img src="logo.png" alt="LocalK Digital" />
+      </a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -861,8 +879,10 @@
 
   <footer class="footer">
     <div class="container">
-      <a href="#" class="logo">LocalK<span>.</span>Digital</a>
-      <p>Helping local food businesses grow through digital strategy.</p>
+      <a href="#" class="footer-logo" aria-label="LocalK Digital">
+        <img src="logo.png" alt="LocalK Digital" />
+      </a>
+      <p style="margin-top: 16px;">Helping local food businesses grow through digital strategy.</p>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
